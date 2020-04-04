@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include <RTClib.h>
 
-RTC_DS3231 rtc;
+RTC_DS3231 rtc; 
 
 byte Digit[12][8] =
 {
@@ -20,7 +20,7 @@ byte Digit[12][8] =
 };
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-const int sensorTemperatura = A0;
+const int sensorTemperatura = A0; // Sensor de temperatura LM35
 int temperatura;
 int estadoBotonCambioHora = HIGH;
 int opcion = 0;
@@ -157,7 +157,7 @@ void loop() {
   } else { // si no hay ningun boton pulsado
 
     if (segundos >= 30 && segundos <= 35) {
-
+        // Se mostrara la temperatura en el display en el segundo 30
         temperatura = (5.0 * analogRead(sensorTemperatura) * 100.0) / 1024.0;
         displayTemperatura(temperatura);  // función para visualizar el número guardado en la variable "temperatura"
     } else {
